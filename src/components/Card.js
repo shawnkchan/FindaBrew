@@ -24,15 +24,15 @@ const theme = createTheme({
 }
 )
 
-function card({shop}) {
+function card({shop, width}) {
   return (
     
     <div style={{margin: '25%'}}>
         <ThemeProvider theme={theme}>
-            <Card sx={{ width:300, backgroundColor:'secondary.main'}}>
+            <Card sx={{ width:width, backgroundColor:'secondary.main'}}>
                 <CardActionArea>
                     <CardMedia
-                    sx={{ height: 160 }}
+                    sx={{ height: 160,}}
                     image={shop.image}
                     title="TiongHoe"
                     />
