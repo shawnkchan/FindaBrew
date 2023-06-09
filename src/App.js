@@ -4,6 +4,7 @@ import Header from './components/Header';
 import RoutesListPage from './pages/RoutesListPage';
 import RoutePage from './pages/RoutePage';
 import Home from './pages/Home';
+import ShopPage from './pages/ShopPage';
 import {
   BrowserRouter,
   Routes,
@@ -23,6 +24,7 @@ function App() { //this is the function that runs the entire application. The di
             <Route path='/routeList' exact element={<RoutesListPage />} /> 
             {/* route for another page */}
             <Route path='/route/:id' element={<RoutePage />} /> 
+            <Route path='/shopPage' element={<ShopPage />} />
           </Routes>
       </div>
     </BrowserRouter>

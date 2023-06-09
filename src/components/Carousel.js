@@ -33,12 +33,14 @@ function Carousel() {
       {
         name: 'TEST',
         image: Glyph
-      }
+      },
+      
   ]
 
   return (
-    <div className='carousel' style={{ display: 'grid', alignItems: 'center', justifyContent: 'space-evenly'}}>
-        <div className='inner' style={{ transform: `translate(-${activeIndex * 100}%)`, display: 'flex'}}>
+    <div className='carousel' style={{ display: 'flex', flexDirection:'column', alignItems: 'center', justifyContent: 'center', overflow:'hidden',   }}>
+        {/* This div will slide horizontally based on the activeIndex */}
+        <div className='inner' style={{ transform: `translate(-${activeIndex * 100}%)`, display: 'flex', whiteSpace: '', transition: 'transform 0.3s', outlineColor:'Blue', outline:'solid',}}>
             {/* this takes the incoming json and iterates throught the map to retrieve each item */}
             {items.map((item) => {
                 return <Card shop={item} width={'100%'} />;

@@ -12,6 +12,9 @@ const RoutesListPage = () => {
   //setRoutes will be a method to update the values
 
   //useEffect takes in an arrow function, as well as a list of dependencies [] on when useEffect fires off
+  //function inside useEffect will be called whenever the dependencies have changed.
+  //If no dependencies have been passed, then the function gets called when the component mounts 
+  //components only ever mount once, when the page is first loaded. mounting does not occur every render of the page 
   useEffect(()=> {
     getRoutes()
   }, [])
@@ -19,7 +22,7 @@ const RoutesListPage = () => {
   //learn about async await and promises
   let getRoutes = async () => {
       //await forces the js script to wait for 'response' to fetch the data before executing 'data'
-      let response = await fetch('/api/route')
+      let response = await fetch('/api/shops')
       let data = await response.json()
       console.log('DATA:', data)
       setRoutes(data) //the state established earlier will now be updated with the data and can be called using 'routes'
