@@ -14,7 +14,7 @@ const images = [
 ]
 
 
-function ShopImages() {
+function ShopImages({id, shop}) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Function to handle fading in and out

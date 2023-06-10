@@ -27,16 +27,16 @@ const theme = createTheme({
 
 
 
-function card({shop, width}) {
+function card({shop, width, index}) {
   return (
     
     <div className='carousel-item' style={{ margin:100}}>
         <ThemeProvider theme={theme}>
-            <Card sx={{ width:width, backgroundColor:'secondary.main'}}>
-                <CardActionArea component={Link} to='/shopPage'>
+            <Card sx={{ width:350, backgroundColor:'secondary.main'}}>
+                <CardActionArea component={Link} to={`/shopPage/${shop.id}`}>
                     <CardMedia
-                    sx={{ height: 160,}}
-                    src={shop.shop_image}
+                    sx={{ height: 200,}}
+                    image={shop.photo_url}
                     title={shop.name}
                     />
                     <CardContent onClick>

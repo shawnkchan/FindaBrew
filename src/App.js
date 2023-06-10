@@ -23,8 +23,8 @@ function App() { //this is the function that runs the entire application. The di
             <Route path='/'  element={<Home />} />
             <Route path='/routeList' exact element={<RoutesListPage />} /> 
             {/* route for another page */}
-            <Route path='/route/:id' element={<RoutePage />} /> 
-            <Route path='/shopPage' element={<ShopPage />} />
+            {/* <Route path='/shopPage/:id' element={<RoutePage />} />  */}
+            <Route path='/shopPage/:id' element={<ShopPage />} />
           </Routes>
       </div>
     </BrowserRouter>

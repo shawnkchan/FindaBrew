@@ -23,15 +23,17 @@ function Home() {
       setShops(data)
   }
 
+  
 
   return (
     <div style={{ }}>
       <Typography variant='h4'>Trending Cafes</Typography>
-      {/* make this dynamic */}
-      {/* <Carousel /> */}
       {shops.map((shop, index) => (
-        <Card key={index} shop={shop} />
-      
+        <div>
+          {console.log(shop.photo_url)}
+          <Card key={index} shop={shop} />
+          {/* <img src={shop.photo_url}></img> */}
+        </div>
       ))}
     </div>
   )
