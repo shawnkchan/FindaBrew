@@ -9,34 +9,30 @@ import { ImageList } from '@mui/material'
 import '../App.css';
 import {useState, useEffect} from 'react'
 
-const images = [
-  TH1,TH2,TH3
-]
 
+function ShopImages({shop}) {
+  // const [currentIndex, setCurrentIndex] = useState(0);
 
-function ShopImages({id, shop}) {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  // // Function to handle fading in and out
+  // const handleFade = () => {
+  //   console.log('clicked')
+  //   setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  // };
 
-  // Function to handle fading in and out
-  const handleFade = () => {
-    console.log('clicked')
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-  };
+  // const renderImages = () => {
+  //   const currentImage = images[currentIndex]
 
-  const renderImages = () => {
-    const currentImage = images[currentIndex]
-
-    return images.map((image,index) => (
-      <img 
-        src={currentImage} 
-        className={`image-slider ${index === currentIndex ? 'active' : ''}`}
-        />
-    ))
-  }
+  //   return images.map((image,index) => (
+  //     <img 
+  //       src={currentImage} 
+  //       className={`image-slider ${index === currentIndex ? 'active' : ''}`}
+  //       />
+  //   ))
+  // }
   
   return (
-    <div style={{ }} className='slider-container' onClick={handleFade}>
-      {renderImages()}
+    <div style={{ width:'50%'}}>
+      <img src={shop.photo_url} style={{width:'100%'}}></img>
     </div>
   )
 }

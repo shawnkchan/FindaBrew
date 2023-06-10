@@ -22,8 +22,6 @@ function App() { //this is the function that runs the entire application. The di
             {/* route for one of the pages */}
             <Route path='/'  element={<Home />} />
             <Route path='/routeList' exact element={<RoutesListPage />} /> 
-            {/* route for another page */}
-            {/* <Route path='/shopPage/:id' element={<RoutePage />} />  */}
             <Route path='/shopPage/:id' element={<ShopPage />} />
           </Routes>
       </div>
