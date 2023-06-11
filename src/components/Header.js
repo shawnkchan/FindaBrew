@@ -1,13 +1,14 @@
 import React from 'react'
 import Button from '@mui/material/Button';
 import { Typography } from '@mui/material';
+import { Link } from 'react-router-dom'
 
 const header = () => {
   return (
     
     <div className='header'>
       <div id='main-name' >
-        <Typography variant='h4' fontWeight='bold' fontFamily='Poppins'>Find a Brew</Typography>
+        <Typography variant='h4' fontWeight='bold' fontFamily='Poppins' component={Link} to={'/'} style={{margin:'10px'}}>Find a Brew</Typography>
       </div>
       
       <div className='header-options'>

@@ -11,27 +11,9 @@ import {useState, useEffect} from 'react'
 
 
 function ShopImages({shop}) {
-  // const [currentIndex, setCurrentIndex] = useState(0);
-
-  // // Function to handle fading in and out
-  // const handleFade = () => {
-  //   console.log('clicked')
-  //   setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-  // };
-
-  // const renderImages = () => {
-  //   const currentImage = images[currentIndex]
-
-  //   return images.map((image,index) => (
-  //     <img 
-  //       src={currentImage} 
-  //       className={`image-slider ${index === currentIndex ? 'active' : ''}`}
-  //       />
-  //   ))
-  // }
   
   return (
-    <div style={{ width:'50%'}}>
+    <div style={{ width:'50%', padding:'20px'}}>
       <img src={shop.photo_url} style={{width:'100%'}}></img>
     </div>
   )

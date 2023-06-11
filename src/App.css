@@ -1,61 +1,66 @@
 @font-face {
-    font-family: 'Poppins';
-    src: url('./fonts/Poppins/Poppins-Bold.ttf') format('truetype');
-    /* Add additional font weights and styles as needed */
-    /* e.g., */
-    /* src: url('../fonts/Poppins-Bold.ttf') format('truetype'); */
-    /* src: url('../fonts/Poppins-Light.ttf') format('truetype'); */
-  }
+  font-family: "Poppins";
+  src: url("./fonts/Poppins/Poppins-Bold.ttf") format("truetype");
+  /* Add additional font weights and styles as needed */
+  /* e.g., */
+  /* src: url('../fonts/Poppins-Bold.ttf') format('truetype'); */
+  /* src: url('../fonts/Poppins-Light.ttf') format('truetype'); */
+}
 
 .header {
-    background-color: #7FA085;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    height: 150px;
-    margin: 0px;
-    border: 0px;
-    color: white;
-    /* font-family: 'Poppins' */
+  background-color: #7fa085;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  height: 150px;
+  margin: 0px;
+  border: 0px;
+  color: white;
+  /* font-family: 'Poppins' */
 }
 
 #main-name {
-    font-family: 'Poppins';
+  font-family: "Poppins";
 }
 
 .header-options {
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: row;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
 }
 
 .header-options > h4 {
-    margin: 20px;
-    border-top: 0px;
-    font-family: 'Poppins';
+  margin: 20px;
+  border-top: 0px;
+  font-family: "Poppins";
 }
 
 .slider-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 300px; /* Adjust as needed */
-    width: 500px;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px; /* Adjust as needed */
+  width: 500px;
+}
+
 .image-slider {
-opacity: 0;
-transition: opacity 0.5s ease;
-height: auto;
-width: auto;
-max-height: 100%;
-max-width: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  height: auto;
+  width: auto;
+  max-height: 100%;
+  max-width: 100%;
 }
 
 .slider-container img {
-pointer-events: none;
+  pointer-events: none;
 }
 
 .image-slider.active {
-opacity: 1;
+  opacity: 1;
+}
+
+.map-container {
+  width: 100%;
+  height: 600px;
 }
