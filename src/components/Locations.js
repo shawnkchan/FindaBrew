@@ -3,7 +3,7 @@ import React from 'react'
 
 function Locations() {
   return (
-    <div>
+    <div style={{width:'40%'}}>
       <Typography variant='h5' fontWeight='bold' align='center'>Locations</Typography>
     </div>
   )

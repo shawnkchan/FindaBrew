@@ -35,8 +35,8 @@ function ShopPage() {
         <ShopImages shop={shop} />
         <ShopInformation shop={shop} />
       </div>
+      <div style={{ display:'flex', justifyContent:'space-evenly'}}>
         <Locations />
-      <div>
         <Map />
       </div>
     </div>
