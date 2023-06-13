@@ -36,7 +36,7 @@ function ShopPage() {
         <ShopInformation shop={shop} />
       </div>
       <div style={{ display:'flex', justifyContent:'space-evenly'}}>
-        <Locations />
+        <Locations shop={shop} />
         <Map />
       </div>
     </div>
