@@ -39,7 +39,7 @@ function card({shop, width, index}) {
                     image={shop.photo_url}
                     title={shop.name}
                     />
-                    <CardContent onClick>
+                    <CardContent>
                         <div style={{display: 'flex', alignItems:'center'}} >
                             <Typography variant='h5' color='white' gutterBottom textOverflow='ellipsis' whiteSpace='nowrap' fontWeight='bold'>
                             {shop.name} 

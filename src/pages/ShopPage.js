@@ -7,6 +7,7 @@ import {useParams} from 'react-router-dom'
 import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api'
 import Locations from '../components/Locations'
 
+
 function ShopPage() {
   const {id} = useParams()
 
@@ -16,7 +17,6 @@ function ShopPage() {
     let response = await fetch(`http://127.0.0.1:8000/api/shops/${id}`)
     let data = await response.json()
     setShop(data)
-    console.log('component mounted')
   }
   
   
