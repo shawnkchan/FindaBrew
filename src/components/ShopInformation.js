@@ -18,9 +18,16 @@ function ShopInformation({shop}) {
       <Typography variant="h4" align='left' fontWeight='bold'>{shop.name}</Typography>
       <div style={{ display:'flex', justifyContent:'flex-start'}}>
         <Typography variant="h6">XXX reviews</Typography>
-        <Button>Instagram</Button>
+        <a href={shop.instagram} target="_blank">
+          <Button>Instagram</Button>
+        </a>
         <Button>Favourite</Button>
-        <Button>Website</Button>
+        {
+          shop.website != null &&
+          <a href={shop.website} target="_blank">
+            <Button>Website</Button>
+          </a>
+        }
       </div>
       <Typography variant='h5' fontWeight='bold' >About</Typography>
       <Typography variant='body3'>

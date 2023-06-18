@@ -18,17 +18,15 @@ function ShopPage() {
     let data = await response.json()
     setShop(data)
   }
-  
-  
 
   useEffect(()=>{
     getShop()
   }, [id])
 
+  //variable to store the map we render
+  const [map, setMap] = useState(/** @type google.maps.MAP */ (null))
 
   return (
-    
-
     <div>
       <div style={{ display:'flex', justifyContent:'flex-start',}}>
         {console.log(id)}
@@ -36,8 +34,8 @@ function ShopPage() {
         <ShopInformation shop={shop} />
       </div>
       <div style={{ display:'flex', justifyContent:'space-evenly'}}>
-        <Locations shop={shop} />
-        <Map />
+        <Locations shop={shop} map={map} setMap={setMap}/>
+        <Map map={map} setMap={setMap}/>
       </div>
     </div>
   )
