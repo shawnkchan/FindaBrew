@@ -25,8 +25,6 @@ const theme = createTheme({
 }
 )
 
-
-
 function card({shop, width, index}) {
   return (
     

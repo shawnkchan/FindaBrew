@@ -1,10 +1,10 @@
 import { CircularProgress, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
-import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api'
+import { GoogleMap, useLoadScript, MarkerF } from '@react-google-maps/api'
 
-function Map({map, setMap}) {
+function Map({map, setMap, locations}) {
     //Loads the Google Maps API script
-  const { isLoaded} = useLoadScript({googleMapsApiKey:process.env.REACT_APP_GOOGLE_MAPS_API_KEY})
+  const { isLoaded } = useLoadScript({googleMapsApiKey:process.env.REACT_APP_GOOGLE_MAPS_API_KEY})
     
     //cache the props given to GoogleMap to avoid re-renders. This improves performance
   const containerStyle = {
@@ -47,13 +47,15 @@ function Map({map, setMap}) {
       <div style={{margin:'30px'}}>
           <GoogleMap 
             zoom={zoom} 
-            center={{lat,lng}} 
+            center={{lat:lat,lng:lng}} 
             mapContainerStyle={containerStyle}
             onLoad={map=>setMap(map)}
           >
-          <Marker position={{lat:lat, lng:lng}}/>
+          <MarkerF position={{lat:lat, lng:lng}}/>
+          {locations.map((location)=>(
+              <MarkerF position={{lat:Number(location.lat), lng:Number(location.lng)}}/>
+          ))}
           </GoogleMap>
-          {console.log(center.lat)}
       </div>
       
     </div>

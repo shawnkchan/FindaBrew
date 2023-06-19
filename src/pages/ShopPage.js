@@ -23,19 +23,30 @@ function ShopPage() {
     getShop()
   }, [id])
 
+  let [locations, setLocations] = useState([])
+
+  let getLocations = async()=> {
+    let response = await fetch(`http://127.0.0.1:8000/api/locations/${shop.id}`)
+    let data = await response.json()
+    console.log(data)
+    setLocations(data)
+  }
+  useEffect(()=>{
+    getLocations()
+  }, [shop.id])
+
   //variable to store the map we render
   const [map, setMap] = useState(/** @type google.maps.MAP */ (null))
 
   return (
     <div>
       <div style={{ display:'flex', justifyContent:'flex-start',}}>
-        {console.log(id)}
         <ShopImages shop={shop} />
         <ShopInformation shop={shop} />
       </div>
       <div style={{ display:'flex', justifyContent:'space-evenly'}}>
-        <Locations shop={shop} map={map} setMap={setMap}/>
-        <Map map={map} setMap={setMap}/>
+        <Locations shop={shop} map={map} setMap={setMap} locations={locations}/>
+        <Map map={map} setMap={setMap} locations={locations}/>
       </div>
     </div>
   )
