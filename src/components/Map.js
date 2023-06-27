@@ -1,8 +1,10 @@
 import { CircularProgress, Typography } from '@mui/material'
-import React, { useEffect, useState } from 'react'
-import { GoogleMap, useLoadScript, MarkerF } from '@react-google-maps/api'
+import React, { useEffect, useState, useRef } from 'react'
+import { GoogleMap, useLoadScript, MarkerF, DirectionsRenderer} from '@react-google-maps/api'
+import Button from '@mui/material/Button';
+import '../../src/App.css'
 
-function Map({map, setMap, locations}) {
+function Map({map, setMap, locations, directionsResponse, setDirectionsResponse, originRef, destinationRef}) {
     //Loads the Google Maps API script
   const { isLoaded } = useLoadScript({googleMapsApiKey:process.env.REACT_APP_GOOGLE_MAPS_API_KEY})
     
@@ -13,28 +15,15 @@ function Map({map, setMap, locations}) {
   }
 
   const zoom = 14
-  
-  //variables to store user's current location
-  const [lat, setLat] = useState(null)
-  const [lng, setLng] = useState(null)
   const center = {lat: 1.3524823,
     lng: 103.7670289}
 
-  useEffect(()=>{
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition( 
-            (position)=>{
-                setLat(position.coords.latitude)
-                setLng(position.coords.longitude)
-            },
-            (error)=>{
-                console.error('Unable to get location', error)
-            }
-        )
-    } else {
-        console.error('Geolocation not supported in this browser')
-    }
-  }, [])
+  function clearDirections() {
+    setDirectionsResponse(null)
+    originRef=''
+    destinationRef=''
+    console.log(directionsResponse)
+  }
 
   if (!isLoaded) return (
     <div style={{ display:'flex', justifyContent:'center', alignItems:'center'}}>
@@ -43,18 +32,21 @@ function Map({map, setMap, locations}) {
     )
   return (
     <div style={{ width:'60%'}}>
-      <Typography variant='h5' fontWeight='bold' align='center'>Directions</Typography>
+      <Typography variant='h5' fontWeight='bold' align='center'>Directions</Typography> 
+      <Button className='Button' variant="contained" onClick={()=>map.panTo(originRef)}>My Location</Button>
+      <Button onClick={clearDirections}>Clear</Button>
       <div style={{margin:'30px'}}>
           <GoogleMap 
             zoom={zoom} 
-            center={{lat:lat,lng:lng}} 
+            center={originRef} 
             mapContainerStyle={containerStyle}
             onLoad={map=>setMap(map)}
           >
-          <MarkerF position={{lat:lat, lng:lng}}/>
+          <MarkerF position={originRef}/>
           {locations.map((location)=>(
               <MarkerF position={{lat:Number(location.lat), lng:Number(location.lng)}}/>
           ))}
+          {directionsResponse && <DirectionsRenderer directions={directionsResponse}/>}
           </GoogleMap>
       </div>
       

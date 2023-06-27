@@ -1,5 +1,5 @@
 import { typography } from '@mui/system'
-import React, { useEffect, useState} from 'react'
+import React, { useEffect, useState, useRef} from 'react'
 import ShopImages from '../components/ShopImages'
 import ShopInformation from '../components/ShopInformation'
 import Map from '../components/Map'
@@ -35,8 +35,37 @@ function ShopPage() {
     getLocations()
   }, [shop.id])
 
+  const destinationRef = useRef()
+
   //variable to store the map we render
   const [map, setMap] = useState(/** @type google.maps.MAP */ (null))
+
+  //Retrieve user's location
+  const [lat, setLat] = useState(null)
+  const [lng, setLng] = useState(null)
+  const originRef = {lat:lat,lng:lng}
+
+  useEffect(()=>{
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition( 
+            (position)=>{
+                setLat(position.coords.latitude)
+                setLng(position.coords.longitude)
+            },
+            (error)=>{
+                console.error('Unable to get location', error)
+            }
+        )
+    } else {
+        console.error('Geolocation not supported in this browser')
+    }
+  }, [])
+  
+
+  //Store directions
+  const [directionsResponse, setDirectionsResponse] = useState(null)
+
+
 
   return (
     <div>
@@ -45,8 +74,26 @@ function ShopPage() {
         <ShopInformation shop={shop} />
       </div>
       <div style={{ display:'flex', justifyContent:'space-evenly'}}>
-        <Locations shop={shop} map={map} setMap={setMap} locations={locations}/>
-        <Map map={map} setMap={setMap} locations={locations}/>
+        <Locations 
+          shop={shop} 
+          map={map} 
+          setMap={setMap} 
+          locations={locations} 
+          destinationRef={destinationRef} 
+          lat={lat} 
+          lng={lng}
+          setDirectionsResponse={setDirectionsResponse}
+          originRef={originRef}
+        />
+        <Map 
+          map={map} 
+          setMap={setMap} 
+          locations={locations} 
+          directionsResponse={directionsResponse}
+          setDirectionsResponse={setDirectionsResponse}
+          originRef={originRef}
+          destinationRef={destinationRef}
+        />
       </div>
     </div>
   )
