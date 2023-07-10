@@ -4,6 +4,7 @@ import { GoogleMap, useLoadScript, MarkerF, DirectionsRenderer} from '@react-goo
 import Button from '@mui/material/Button';
 import '../../src/App.css'
 
+
 function Map({map, setMap, locations, directionsResponse, setDirectionsResponse, originRef, destinationRef}) {
     //Loads the Google Maps API script
   const { isLoaded } = useLoadScript({googleMapsApiKey:process.env.REACT_APP_GOOGLE_MAPS_API_KEY})
@@ -31,10 +32,12 @@ function Map({map, setMap, locations, directionsResponse, setDirectionsResponse,
     </div>
     )
   return (
-    <div style={{ width:'60%'}}>
+    <div style={{ width:'60%', }}>
       <Typography variant='h5' fontWeight='bold' align='center'>Directions</Typography> 
-      <Button className='Button' variant="contained" onClick={()=>map.panTo(originRef)}>My Location</Button>
-      <Button onClick={clearDirections}>Clear</Button>
+      <div style={{display:'flex', justifyContent:'center'}}>
+        <Button  className='Button' variant="contained" size='medium' style={{margin:'10px' }} onClick={()=>map.panTo(originRef)}>My Location</Button>
+        <Button onClick={clearDirections} variant='contained' size='medium' style={{margin:'10px'}}>Clear</Button>
+      </div>
       <div style={{margin:'30px'}}>
           <GoogleMap 
             zoom={zoom} 
