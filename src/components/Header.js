@@ -9,7 +9,7 @@ const header = () => {
     <div className='header'>
       <div id='main-name' >
         <div style={{marginTop:'80px', marginLeft:'10px'}}>
-          <Typography  variant='h3' fontWeight='bold' fontFamily='Poppins' component={Link} to={'/'} style={{margin:'10px', textDecoration:'none'}} >Find a Brew</Typography>
+          <Typography  variant='h3' fontWeight='bold' fontFamily='Poppins' component={Link} to={'/'} style={{margin:'10px', textDecoration:'none', color:'inherit'}} >Find a Brew</Typography>
         </div>
       </div>
       

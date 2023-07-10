@@ -11,6 +11,8 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import { blue, red, grey} from '@mui/material/colors'
+import './fonts/fonts.css'
 
 const theme = createTheme({
   palette: {
@@ -19,10 +21,15 @@ const theme = createTheme({
       },
       secondary: {
           main: '#144329'
+      },
+      cardText: {
+        main: '#ffffff',
       }
   },
   typography: {
-
+    // fontFamily: 'Poppins',
+    fontWeightLight: 100,
+    fontWeightBold: 1000
   }
 }
 )

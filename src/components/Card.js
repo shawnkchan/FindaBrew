@@ -9,6 +9,7 @@ import Button from '@mui/material/Button'
 import { grid } from '@mui/system'
 import { create } from '@mui/material/styles/createTransitions'
 import { Link } from 'react-router-dom'
+import { light } from '@mui/material/styles/createPalette'
 // import imageSrc from './images/test.png'
 
 function ShopCard({shop, width, index}) {
@@ -24,18 +25,20 @@ function ShopCard({shop, width, index}) {
                 title={shop.name}
                 />
                 <CardContent style={{height:'130px',}}>
-                    <div>
-                        <Typography variant='h5'>
+                    <div style={{color: theme.palette.cardText.main}}>
+                        <Typography variant='h5' style={{fontWeight: theme.typography.fontWeightBold}}>
                         {shop.name} 
                         </Typography>
 
                         <Typography variant='body1'>
                             {shop.price}
                         </Typography>
-                    </div>
-                    <Typography variant='body1'>
+
+                        <Typography variant='body2' style={{fontWeight:theme.typography.fontWeightLight}}>
                         {shop.description}
-                    </Typography>
+                        </Typography>
+                    </div>
+                    
                 </CardContent>
             </CardActionArea>
         </Card>
