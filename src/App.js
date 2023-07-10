@@ -13,6 +13,8 @@ import {
 } from "react-router-dom";
 import { blue, red, grey} from '@mui/material/colors'
 import './fonts/fonts.css'
+import { Login } from '@mui/icons-material';
+import LogIn from './pages/LogIn';
 
 const theme = createTheme({
   palette: {
@@ -46,6 +48,7 @@ function App() { //this is the function that runs the entire application. The di
               <Route path='/'  element={<Home />} />
               <Route path='/routeList' exact element={<RoutesListPage />} />
               <Route path='/shopPage/:id' element={<ShopPage />} />
+              <Route path='/login' element={<LogIn />} />
             </Routes>
         </div>
       </BrowserRouter>
